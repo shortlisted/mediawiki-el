@@ -188,7 +188,15 @@
     (url-bit-for-url 'url-password "password" url)))
 
 (when (fboundp 'url-http-create-request)
-  (if (string= "GET / HTTP/1.0\nMIME-Version: 1.0\nConnection: close\nHost: example.com\nAccept: */*\nUser-Agent: URL/Emacs\nContent-length: 4\n\ntest"
+  (if (string= "GET / HTTP/1.0
+\nMIME-Version: 1.0
+\nConnection: close
+\nHost: example.com
+\nAccept: */*
+\nUser-Agent: URL/Emacs
+\nContent-length: 4
+\n
+\ntest"
 	       (let ((url-http-target-url (url-generic-parse-url "http://example.com/"))
 		     (url-http-data "test") (url-http-version "1.0")
 		     url-http-method url-http-attempt-keepalives url-extensions-header
@@ -1764,7 +1772,7 @@ surrounds region."
 (defun mediawiki-insert-link-www ()
   "Insert link (e.g. [://FOO])."
   (interactive)
-  (mediawiki-insert "[://" "]"))
+  (mediawiki-insert "[http://" "]"))
 
 (defun mediawiki-insert-image ()
   "Insert image link (e.g. [[Image:FOO]]).
