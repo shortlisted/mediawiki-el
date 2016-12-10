@@ -1701,7 +1701,6 @@ surrounds region."
   (interactive)
   (mediawiki-insert "'''" "'''"))
 
-
 (defun mediawiki-insert-italics ()
   "Mark italics.
 Uses TWO apostrophes (e.g. ''FOO'').  When mark is active,
@@ -1768,9 +1767,9 @@ surrounds region."
   "Insert link (e.g. [[FOO]])."
   (interactive)
   (mediawiki-insert "[[" "]]"))
-
+ 
 (defun mediawiki-insert-link-www ()
-  "Insert link (e.g. [://FOO])."
+  "Insert link (e.g. [http://FOO])."
   (interactive)
   (mediawiki-insert "[http://" "]"))
 
@@ -1799,6 +1798,25 @@ Checks The variable mediawiki-english-or-german."
   "Insert hline (e.g. \"----\")."
   (interactive)
   (insert "\n----\n"))
+
+;; own inserts
+(defun mediawiki-insert-syntaxhighlight ()
+  "Mark for syntax highlight.
+Uses syntaxhighlight tag (e.g.
+<syntaxhighlight lang=\" \"></syntaxhighligt>).
+When mark is active, surrounds region."
+  (interactive)
+  (mediawiki-insert
+  "<syntaxhighlight lang=\" \">
+""
+</syntaxhighlight>"))
+
+(defun mediawiki-insert-teletype ()
+  "Teletype-tag, for fixed-width fonts
+Uses <tt> (e.g. <tt>text</tt>).  When mark is active,
+surrounds region."
+  (interactive)
+  (mediawiki-insert "'''<tt>""</tt>'''"))
 
 (defun mediawiki-unfill-paragraph-or-region ()
   "Unfill region.
